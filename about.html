@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Your Name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563eb', // Blue-600
+                        'secondary': '#475569', // Slate-600
+                        'light-gray': '#f1f5f9', // Slate-100
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-gray font-sans text-secondary">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary">Your Name</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="about.html" class="text-primary font-semibold border-b-2 border-primary">About</a>
+                <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block hover:text-primary transition-colors">Home</a>
+            <a href="about.html" class="block text-primary font-semibold">About</a>
+            <a href="projects.html" class="block hover:text-primary transition-colors">Projects</a>
+            <a href="#contact" class="block bg-primary text-white mt-2 py-2 px-4 rounded-md hover:bg-blue-700 transition-colors text-center">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            
+            <section id="about-me" class="flex flex-col md:flex-row items-center gap-10">
+                
+                <img src="images/headshot.jpg" alt="Your Name" class="w-48 h-48 rounded-full object-cover shadow-md">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800">About Me</h2>
+                    <p class="mt-4 text-lg leading-relaxed">
+                        [Your brief, 2-3 sentence summary of your background and passion. More personal than a CV summary. e.g., "I'm a recent graduate with a passion for genomics and data visualization. I believe that elegant code and thoughtful analysis can unlock complex biological insights, and I'm driven to apply my skills to challenges in infectious disease and public health."]
+                    </p>
+                </div>
+            </section>
+            
+            <hr class="my-12">
+
+            <section id="experience">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Experience</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="text-primary font-semibold text-right">2023 - Present</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">[Job Title], [Company/University]</h3>
+                            <p class="mt-1">[Brief description of your role and key accomplishments.]</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-primary font-semibold text-right">2021 - 2023</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">[Job Title], [Company/University]</h3>
+                            <p class="mt-1">[Brief description of your role and key accomplishments.]</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-12">
+            
+            <section id="skills">
+                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Technical Skills</h2>
+                 <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">Python</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">R</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">SQL</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">Nextflow</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">Git & GitHub</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">Docker</span>
+                    <span class="bg-secondary text-white text-md font-medium px-4 py-2 rounded-md">AWS</span>
+                 </div>
+            </section>
+            
+            <hr class="my-12">
+
+            <section id="publications">
+                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Publications & Posters</h2>
+                 <ul class="space-y-4 list-disc list-inside">
+                    <li><strong>[Your Name]</strong>, et al. (2024). "Title of Your Publication". <em>Journal Name</em>. <a href="#" class="text-primary hover:underline">[Link]</a></li>
+                    <li>Poster: "Title of Your Poster Presentation". Presented at <em>Conference Name</em>, 2023.</li>
+                 </ul>
+            </section>
+            
+            <hr class="my-12">
+
+            <section id="volunteering">
+                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Volunteering & Leadership</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">[Organization Name] - [Your Role]</h3>
+                        <p class="mt-2">[Summarize your volunteering experience and what you learned or achieved. This is a great place to show personality and passion beyond your technical work.]</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <img src="images/volunteer-1.jpg" alt="Volunteering activity 1" class="rounded-lg shadow-md aspect-square object-cover">
+                        
+                        <img src="images/volunteer-2.jpg" alt="Volunteering activity 2" class="rounded-lg shadow-md aspect-square object-cover">
+                    </div>
+                 </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold">Get In Touch</h3>
+            <p class="mt-2">Feel free to reach out for collaborations or just a friendly chat!</p>
+            <a href="mailto:your.email@example.com" class="mt-4 inline-block text-lg text-primary hover:underline">your.email@example.com</a>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="hover:text-primary transition-colors">GitHub</a>
+                <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-primary transition-colors">Google Scholar</a>
+            </div>
+            <p class="mt-8 text-sm text-gray-400">&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
