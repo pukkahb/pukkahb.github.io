@@ -7,6 +7,14 @@
     <meta name="description" content="Portfolio of Temitayo Ogundimu — Bioinformatician, Data Scientist, and Public Health Researcher.">
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--
+    ═══════════════════════════════════════════════════
+    FONT NOTE
+    Using Syne (display) + DM Sans (body) for a more
+    distinctive look. Swap freely via Google Fonts.
+    ═══════════════════════════════════════════════════
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -19,46 +27,42 @@
             --teal-dark: #0d9488;
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
+        * { box-sizing: border-box; }
+
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--bg);
             color: #94a3b8;
-            /* Fluid font base: scales from 15px at 320px wide to 18px at 1920px wide */
-            font-size: clamp(0.9375rem, 0.5rem + 0.7vw, 1.125rem);
-            margin: 0;
         }
 
-        h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
-
-        /* ── Fluid container: uses % of viewport with a sensible max, plus generous padding ── */
-        .fluid-container {
-            width: min(92vw, 1400px);
-            margin-inline: auto;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Syne', sans-serif;
         }
 
         /* ── Page transitions ── */
-        .page { animation: fadeIn 0.35s ease; }
+        .page {
+            animation: fadeIn 0.35s ease;
+        }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
+            from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
         /* ── Active nav link ── */
         .active-link {
-            color: var(--teal) !important;
+            color: var(--teal);
             border-bottom: 2px solid var(--teal);
         }
 
-        /* ── Scrollbar ── */
+        /* ── Custom scrollbar ── */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: #2a4a72; }
 
-        /* ── Gradient heading text ── */
+        /* ── Teal gradient text helper ── */
         .grad-text {
             background: linear-gradient(90deg, var(--teal), #818cf8);
             -webkit-background-clip: text;
@@ -71,148 +75,33 @@
             display: inline-block;
             background: #1e3a5f;
             color: var(--teal);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            padding: 3px 11px;
+            padding: 2px 10px;
             border-radius: 999px;
             margin: 2px 2px 0 0;
         }
 
         /* ── Mobile nav panel ── */
-        #mobile-menu { display: none; }
-        #mobile-menu.open { display: block; }
-
-        /* ═══════════════════════════════════════
-           HERO — fluid sizing
-        ═══════════════════════════════════════ */
-        .hero-name {
-            /* Scales from ~38px (mobile) up to ~80px (4K) */
-            font-size: clamp(2.4rem, 4.5vw + 0.5rem, 5.5rem);
-            line-height: 1.08;
+        #mobile-menu {
+            display: none;
         }
-
-        .hero-tagline {
-            font-size: clamp(1rem, 1.4vw + 0.2rem, 1.6rem);
-        }
-
-        .hero-body {
-            font-size: clamp(0.9rem, 0.6vw + 0.5rem, 1.1rem);
-            max-width: 55ch;
-        }
-
-        /* Hero image: scales with viewport, never clips */
-        .hero-img {
-            width: clamp(220px, 28vw, 480px);
-            height: clamp(220px, 28vw, 480px);
-            object-fit: cover;
-            border-radius: 1rem;
-            border: 3px solid rgba(45,212,191,0.35);
-            box-shadow: 0 0 60px rgba(45,212,191,0.12);
-            display: block;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION headings — fluid
-        ═══════════════════════════════════════ */
-        .section-title {
-            font-size: clamp(1.8rem, 2.5vw + 0.5rem, 3rem);
-        }
-
-        /* ═══════════════════════════════════════
-           PROJECT CARDS — fluid grid
-        ═══════════════════════════════════════ */
-        .projects-grid {
-            display: grid;
-            /* Auto-fill columns that are at least 280px, grow to fill space */
-            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-            gap: clamp(1rem, 2vw, 1.75rem);
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 1rem;
-            padding: clamp(1.25rem, 2vw, 1.75rem);
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-        .card:hover {
-            box-shadow: 0 8px 40px rgba(45,212,191,0.12);
-            transform: translateY(-3px);
-        }
-
-        /* ═══════════════════════════════════════
-           TIMELINE
-        ═══════════════════════════════════════ */
-        .timeline {
-            position: relative;
-            border-left: 2px solid #1e293b;
-            margin-left: 1rem;
-            padding-left: clamp(1.5rem, 3vw, 2.5rem);
-        }
-        .timeline-dot {
-            position: absolute;
-            left: calc(-0.45rem);
-            top: 0.25rem;
-            width: 0.75rem;
-            height: 0.75rem;
-            border-radius: 50%;
-            background: var(--teal);
-            box-shadow: 0 0 0 4px var(--bg);
-        }
-        .timeline-dot.muted { background: #475569; }
-
-        /* ═══════════════════════════════════════
-           SKILLS
-        ═══════════════════════════════════════ */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: clamp(0.5rem, 1vw, 0.875rem);
-        }
-        .skill-pill {
-            background: var(--surface);
-            color: #e2e8f0;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 0.5rem;
-            font-size: clamp(0.75rem, 0.6vw + 0.5rem, 0.95rem);
-            font-weight: 500;
-            padding: 0.5rem 1.1rem;
-        }
-
-        /* ═══════════════════════════════════════
-           VOLUNTEER GRID
-        ═══════════════════════════════════════ */
-        .vol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-            gap: clamp(1rem, 2vw, 1.5rem);
-        }
-        .vol-card {
-            border-radius: 1rem;
-            overflow: hidden;
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-        .vol-card img {
-            width: 100%;
-            height: clamp(140px, 12vw, 220px);
-            object-fit: cover;
+        #mobile-menu.open {
             display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- ════════════════════════ NAV ════════════════════════ -->
-    <header style="background:rgba(6,13,26,0.88); backdrop-filter:blur(14px);"
+    <!-- ════════════════════════════════════
+         NAVIGATION
+    ════════════════════════════════════ -->
+    <header style="background:rgba(6,13,26,0.85); backdrop-filter:blur(12px);"
             class="sticky top-0 z-50 border-b border-white/5">
-        <nav class="fluid-container py-4 flex justify-between items-center">
-            <a href="#home" class="nav-link font-bold text-white tracking-wide"
-               style="font-family:'Syne',sans-serif; font-size:clamp(1.1rem,1.5vw,1.4rem);">OAT</a>
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="nav-link font-bold text-white text-xl tracking-wide" style="font-family:'Syne',sans-serif;">OAT</a>
 
-            <!-- Desktop -->
+            <!-- Desktop links -->
             <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
                 <li><a href="#home"       class="nav-link hover:text-teal-400 transition-colors pb-1">Home</a></li>
                 <li><a href="#about"      class="nav-link hover:text-teal-400 transition-colors pb-1">About</a></li>
@@ -221,14 +110,16 @@
                 <li><a href="#contact"    class="nav-link hover:text-teal-400 transition-colors pb-1">Contact</a></li>
             </ul>
 
-            <!-- Hamburger -->
-            <button id="menu-btn" aria-label="Open navigation menu" class="md:hidden text-white focus:outline-none">
+            <!-- Mobile hamburger -->
+            <button id="menu-btn" aria-label="Open navigation menu"
+                    class="md:hidden text-white focus:outline-none">
                 <svg id="icon-open"  class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </nav>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden border-t border-white/5 px-6 pb-5">
+
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="md:hidden border-t border-white/5 px-6 pb-4">
             <ul class="flex flex-col gap-4 pt-4 text-sm font-medium">
                 <li><a href="#home"       class="nav-link block hover:text-teal-400 transition-colors">Home</a></li>
                 <li><a href="#about"      class="nav-link block hover:text-teal-400 transition-colors">About</a></li>
@@ -239,336 +130,430 @@
         </div>
     </header>
 
-    <main>
 
-        <!-- ════════════════════════ HOME ════════════════════════ -->
-        <section id="home" class="page" style="min-height:calc(100vh - 65px); display:flex; align-items:center;">
-            <div class="fluid-container" style="padding-block: clamp(3rem, 8vh, 7rem);">
-                <div style="display:grid; grid-template-columns: 1fr auto; gap: clamp(2rem,5vw,6rem); align-items:center;">
+    <main class="max-w-6xl mx-auto px-6">
 
-                    <!-- Text -->
-                    <div>
-                        <p class="text-teal-400 font-medium tracking-widest uppercase mb-3"
-                           style="font-size:clamp(0.7rem,0.8vw,0.85rem);">Hello, I'm</p>
-                        <h1 class="hero-name font-extrabold text-white mb-4">
-                            Temitayo<br>Ogundimu
-                        </h1>
-                        <h2 class="hero-tagline grad-text font-bold mb-6">
-                            Zoologist · Bioinformatician · Data Scientist · Public Health Researcher
-                        </h2>
-                        <p class="hero-body text-slate-400 leading-relaxed mb-10">
-                            A dedicated public health professional with a foundation in zoology, evolving into bioinformatics and data science. I leverage computational tools and data-driven insights to tackle public health challenges and improve population health outcomes.
-                        </p>
-                        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
-                            <a href="#projects" class="nav-link bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-colors"
-                               style="padding: 0.75rem clamp(1.25rem,2vw,2rem); font-size:clamp(0.8rem,0.8vw+0.3rem,1rem);">
-                                View My Work
-                            </a>
-                            <a href="#contact" class="nav-link text-teal-400 hover:bg-teal-500/10 font-bold rounded-lg transition-colors"
-                               style="border:1px solid var(--teal); padding: 0.75rem clamp(1.25rem,2vw,2rem); font-size:clamp(0.8rem,0.8vw+0.3rem,1rem);">
-                                Get In Touch
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Headshot -->
-                    <div style="display:flex; justify-content:center; align-items:center;">
-                        <!--
-                        YOUR HEADSHOT:
-                        Create assets/images/ in your repo.
-                        Upload headshot.jpg and change src to:
-                            src="assets/images/headshot.jpg"
-                        -->
-                        <img src="assets/images/headshot.jpg"
-                             alt="Portrait of Temitayo Ogundimu"
-                             class="hero-img">
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ════════════════════════ ABOUT ════════════════════════ -->
-        <section id="about" class="page hidden" style="padding-block: clamp(3rem,8vh,6rem);">
-            <div class="fluid-container">
-                <p class="text-teal-400 font-medium tracking-widest uppercase mb-2" style="font-size:0.75rem;">Get to know me</p>
-                <h2 class="section-title font-extrabold text-white mb-12">About Me</h2>
-
-                <div style="display:grid; grid-template-columns: 2fr 3fr; gap: clamp(2rem,5vw,5rem); align-items:center;">
-                    <div>
-                        <!--
-                        WORKING PHOTO:
-                        Upload labwork.jpg to assets/images/
-                        -->
-                        <img src="assets/images/labwork.jpg"
-                             alt="Temitayo working in a lab"
-                             style="width:100%; border-radius:1rem; border:1px solid rgba(255,255,255,0.06); box-shadow:0 20px 60px rgba(0,0,0,0.4); object-fit:cover;">
-                    </div>
-
-                    <div style="font-size:clamp(0.9rem,0.6vw+0.6rem,1.05rem); line-height:1.8;" class="text-slate-400">
-                        <p style="margin-bottom:1.25rem;">
-                            I am a passionate and results-oriented professional transitioning from a strong background in zoology (parasitology) into the dynamic world of bioinformatics and data science. My journey began with a focus on understanding pathogens and disease transmission at a microscopic level. However, I soon realised the potential of computational analysis to unlock patterns and insights from vast biological datasets.
-                        </p>
-                        <p style="margin-bottom:1.25rem;">
-                            This drove me to acquire skills in Python and R, data manipulation libraries such as Pandas, and machine learning frameworks like Scikit-learn. I am proficient at transforming raw data into meaningful visualisations and predictive models that can inform public health strategies and clinical research.
-                        </p>
-                        <p>
-                            My unique interdisciplinary perspective bridges wet-lab research and computational analysis, ensuring that data-driven solutions are both technically sound and biologically relevant. I am eager to apply these skills to solve real-world health problems and contribute to a healthier future for all.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ════════════════════════ PROJECTS ════════════════════════ -->
-        <section id="projects" class="page hidden" style="padding-block: clamp(3rem,8vh,6rem);">
-            <div class="fluid-container">
-                <p class="text-teal-400 font-medium tracking-widest uppercase mb-2" style="font-size:0.75rem;">What I've built</p>
-                <h2 class="section-title font-extrabold text-white mb-12">Featured Projects</h2>
-
-                <div class="projects-grid">
-
-                    <div class="card">
-                        <div style="font-size:2rem; margin-bottom:1rem;">🧬</div>
-                        <h3 class="text-white font-bold mb-2" style="font-size:clamp(1rem,1.2vw+0.3rem,1.25rem);">Malaria Drug Resistance Model</h3>
-                        <p class="text-slate-400 flex-grow mb-4" style="font-size:0.875rem; line-height:1.7;">
-                            Developed a machine learning model to predict malaria drug resistance based on phenotype data, aiming to improve early warning systems.
-                        </p>
-                        <div class="mb-4"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
-                        <span class="text-slate-600 italic" style="font-size:0.8rem;">Not public yet</span>
-                    </div>
-
-                    <div class="card">
-                        <div style="font-size:2rem; margin-bottom:1rem;">🔬</div>
-                        <h3 class="text-white font-bold mb-2" style="font-size:clamp(1rem,1.2vw+0.3rem,1.25rem);">Genomic Variant Analysis Pipeline</h3>
-                        <p class="text-slate-400 flex-grow mb-4" style="font-size:0.875rem; line-height:1.7;">
-                            A bioinformatics pipeline for identifying and annotating genetic variants from NGS data to find copy number variations (CNVs).
-                        </p>
-                        <div class="mb-4"><span class="tag">Nextflow</span><span class="tag">Python</span><span class="tag">GATK</span></div>
-                        <a href="https://github.com/pukkahb/HTS_2024_copy_number-genotyping" target="_blank" rel="noopener"
-                           class="text-teal-400 font-semibold hover:underline mt-auto" style="font-size:0.875rem;">View on GitHub →</a>
-                    </div>
-
-                    <div class="card">
-                        <div style="font-size:2rem; margin-bottom:1rem;">🏥</div>
-                        <h3 class="text-white font-bold mb-2" style="font-size:clamp(1rem,1.2vw+0.3rem,1.25rem);">Hospital Management Database System</h3>
-                        <p class="text-slate-400 flex-grow mb-4" style="font-size:0.875rem; line-height:1.7;">
-                            A relational database for managing hospital operations, built to handle patient records, appointments, and staff data.
-                        </p>
-                        <div class="mb-4"><span class="tag">SQL</span></div>
-                        <a href="https://github.com/pukkahb/hospital_dbms" target="_blank" rel="noopener"
-                           class="text-teal-400 font-semibold hover:underline mt-auto" style="font-size:0.875rem;">View on GitHub →</a>
-                    </div>
-
-                    <div class="card">
-                        <div style="font-size:2rem; margin-bottom:1rem;">📘</div>
-                        <h3 class="text-white font-bold mb-2" style="font-size:clamp(1rem,1.2vw+0.3rem,1.25rem);">R for Biology Beginners</h3>
-                        <p class="text-slate-400 flex-grow mb-4" style="font-size:0.875rem; line-height:1.7;">
-                            A guide designed for biology students and researchers to get started with data analysis, visualisation, and manipulation in R.
-                        </p>
-                        <div class="mb-4"><span class="tag">R</span></div>
-                        <a href="https://github.com/pukkahb/R-for-Biology-Beginners-Tutorial" target="_blank" rel="noopener"
-                           class="text-teal-400 font-semibold hover:underline mt-auto" style="font-size:0.875rem;">View on GitHub →</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ════════════════════════ EXPERIENCE ════════════════════════ -->
-        <section id="experience" class="page hidden" style="padding-block: clamp(3rem,8vh,6rem);">
-            <div class="fluid-container">
-                <p class="text-teal-400 font-medium tracking-widest uppercase mb-2" style="font-size:0.75rem;">My journey</p>
-                <h2 class="section-title font-extrabold text-white mb-16">Experience & Education</h2>
-
-                <div style="display:flex; flex-direction:column; gap: clamp(3rem,6vw,5rem);">
-
-                    <!-- Work Experience -->
-                    <div>
-                        <h3 class="text-teal-400 font-bold mb-8 pl-4 border-l-4 border-teal-400"
-                            style="font-size:clamp(1.2rem,1.5vw+0.3rem,1.6rem);">Work Experience</h3>
-                        <div class="timeline" style="display:flex; flex-direction:column; gap:2.5rem;">
-                            <div style="position:relative;">
-                                <div class="timeline-dot"></div>
-                                <h4 class="text-white font-bold" style="font-size:clamp(0.95rem,1vw+0.2rem,1.1rem);">Research Assistant</h4>
-                                <p class="text-teal-400/70 font-medium mb-2" style="font-size:0.85rem;">
-                                    Covenant Applied Informatics and Communication Africa Centre of Excellence (CApIC-ACE) · 2023 – Present
-                                </p>
-                                <ul class="text-slate-400 list-disc list-inside" style="font-size:0.9rem; line-height:1.8;">
-                                    <li>Assisted in the federated generated omics lab.</li>
-                                    <li>Developed proficiency in bioinformatics tools for genomic data analysis.</li>
-                                    <li>Developed a hospital database management system.</li>
-                                </ul>
-                            </div>
-                            <div style="position:relative;">
-                                <div class="timeline-dot"></div>
-                                <h4 class="text-white font-bold" style="font-size:clamp(0.95rem,1vw+0.2rem,1.1rem);">Research Assistant</h4>
-                                <p class="text-teal-400/70 font-medium mb-2" style="font-size:0.85rem;">
-                                    Damien Foundation for Genomics and Mycobacteria Research and Training Centre · 2023
-                                </p>
-                                <ul class="text-slate-400 list-disc list-inside" style="font-size:0.9rem; line-height:1.8;">
-                                    <li>Performed DNA sequencing and molecular biology techniques.</li>
-                                    <li>Managed lab inventory and maintained equipment.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Education -->
-                    <div>
-                        <h3 class="text-teal-400 font-bold mb-8 pl-4 border-l-4 border-teal-400"
-                            style="font-size:clamp(1.2rem,1.5vw+0.3rem,1.6rem);">Education</h3>
-                        <div class="timeline" style="display:flex; flex-direction:column; gap:2.5rem;">
-                            <div style="position:relative;">
-                                <div class="timeline-dot"></div>
-                                <h4 class="text-white font-bold" style="font-size:clamp(0.95rem,1vw+0.2rem,1.1rem);">
-                                    M.Sc. in Bioinformatics <span class="text-teal-400" style="font-size:0.85rem;">(Ongoing)</span>
-                                </h4>
-                                <p class="text-teal-400/70 font-medium" style="font-size:0.85rem;">Covenant University · 2023 – Present</p>
-                            </div>
-                            <div style="position:relative;">
-                                <div class="timeline-dot muted"></div>
-                                <h4 class="text-white font-bold" style="font-size:clamp(0.95rem,1vw+0.2rem,1.1rem);">B.Sc. in Zoology</h4>
-                                <p class="text-teal-400/70 font-medium" style="font-size:0.85rem;">University of Ibadan · 2015 – 2019</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skills -->
-                    <div>
-                        <h3 class="text-teal-400 font-bold mb-8 pl-4 border-l-4 border-teal-400"
-                            style="font-size:clamp(1.2rem,1.5vw+0.3rem,1.6rem);">Skills</h3>
-                        <div class="skills-grid">
-                            <span class="skill-pill">Python</span>
-                            <span class="skill-pill">R</span>
-                            <span class="skill-pill">SQL</span>
-                            <span class="skill-pill">Pandas</span>
-                            <span class="skill-pill">Scikit-learn</span>
-                            <span class="skill-pill">Nextflow</span>
-                            <span class="skill-pill">Git & GitHub</span>
-                            <span class="skill-pill">PCR</span>
-                            <span class="skill-pill">NGS Data Analysis</span>
-                        </div>
-                    </div>
-
-                    <!-- Volunteering -->
-                    <div>
-                        <h3 class="text-teal-400 font-bold mb-8 pl-4 border-l-4 border-teal-400"
-                            style="font-size:clamp(1.2rem,1.5vw+0.3rem,1.6rem);">Volunteering</h3>
-                        <div class="vol-grid">
-                            <div class="vol-card">
-                                <!--
-                                VOLUNTEER PHOTO 1:
-                                Upload capicace.jpg to assets/images/
-                                -->
-                                <img src="assets/images/capicace.jpg" alt="Cancer awareness event at CApIC-ACE">
-                                <div style="padding: clamp(1rem,1.5vw,1.5rem);">
-                                    <h4 class="text-white font-bold" style="font-size:0.95rem;">Cancer Awareness Volunteer</h4>
-                                    <p class="text-slate-400" style="font-size:0.85rem;">CApIC-ACE</p>
-                                </div>
-                            </div>
-                            <div class="vol-card">
-                                <!--
-                                VOLUNTEER PHOTO 2:
-                                Upload ccodel.png to assets/images/
-                                -->
-                                <img src="assets/images/ccodel.png" alt="Volunteering at CCODeL">
-                                <div style="padding: clamp(1rem,1.5vw,1.5rem);">
-                                    <h4 class="text-white font-bold" style="font-size:0.95rem;">Content Creation Volunteer</h4>
-                                    <p class="text-slate-400" style="font-size:0.85rem;">CCODeL</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ════════════════════════ CONTACT ════════════════════════ -->
-        <section id="contact" class="page hidden" style="padding-block: clamp(3rem,10vh,8rem);">
-            <div class="fluid-container">
-                <div style="max-width:600px; margin-inline:auto; text-align:center;">
-                    <p class="text-teal-400 font-medium tracking-widest uppercase mb-2" style="font-size:0.75rem;">What's next?</p>
-                    <h2 class="section-title font-extrabold text-white mb-6">Get In Touch</h2>
-                    <p class="text-slate-400 leading-relaxed mb-10" style="font-size:clamp(0.9rem,0.6vw+0.6rem,1.05rem);">
-                        I'm currently open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to say hi — my inbox is always open.
+        <!-- ════════════════════════════════════
+             HOME
+        ════════════════════════════════════ -->
+        <section id="home" class="page min-h-screen flex items-center py-24">
+            <div class="grid md:grid-cols-2 gap-16 items-center w-full">
+                <div class="order-2 md:order-1">
+                    <p class="text-teal-400 font-medium tracking-widest text-sm uppercase mb-4">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                        Temitayo<br>Ogundimu
+                    </h1>
+                    <h2 class="text-xl md:text-2xl grad-text font-bold mb-6">
+                        Zoologist · Bioinformatician · Data Scientist · Public Health Researcher
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed mb-10 max-w-lg">
+                        A dedicated public health professional with a foundation in zoology, evolving into bioinformatics and data science. I leverage computational tools and data-driven insights to tackle public health challenges and improve population health outcomes.
                     </p>
-                    <a href="mailto:ogundimutemitayoa@gmail.com"
-                       class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-colors mb-12"
-                       style="padding: 0.875rem clamp(2rem,4vw,3.5rem); font-size:clamp(0.85rem,0.8vw+0.3rem,1rem);">
-                        Say Hello
-                    </a>
-                    <div style="display:flex; justify-content:center; gap:1.75rem;">
-                        <a href="https://www.linkedin.com/in/oatemitayo" target="_blank" rel="noopener"
-                           aria-label="LinkedIn profile" class="text-slate-400 hover:text-teal-400 transition-colors">
-                            <svg style="width:clamp(1.5rem,2vw,2rem); height:clamp(1.5rem,2vw,2rem);" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z" clip-rule="evenodd"/></svg>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="nav-link bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-7 rounded-lg transition-colors text-sm">
+                            View My Work
                         </a>
-                        <a href="https://github.com/pukkahb" target="_blank" rel="noopener"
-                           aria-label="GitHub profile" class="text-slate-400 hover:text-teal-400 transition-colors">
-                            <svg style="width:clamp(1.5rem,2vw,2rem); height:clamp(1.5rem,2vw,2rem);" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                        <a href="#contact" class="nav-link border border-teal-500 text-teal-400 hover:bg-teal-500/10 font-bold py-3 px-7 rounded-lg transition-colors text-sm">
+                            Get In Touch
                         </a>
                     </div>
+                </div>
+
+                <div class="order-1 md:order-2 flex justify-center">
+                    <!--
+                    ═══════════════════════════════════════════════
+                    YOUR HEADSHOT — HOW TO ADD IT:
+                    1. Create a folder called "assets/images/" in
+                       your GitHub repo alongside index.html.
+                    2. Upload your photo as "headshot.jpg" (or .png).
+                    3. Change the src below to:
+                           src="assets/images/headshot.jpg"
+                    4. Remove the placeholder src entirely.
+
+                    The alt text is read by screen readers — keep it
+                    descriptive.
+                    ═══════════════════════════════════════════════
+                    -->
+                    <img src="assets/images/headshot.jpg"
+                         alt="Portrait of Temitayo Ogundimu"
+                         class="rounded-2xl w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl"
+                         style="border: 3px solid rgba(45,212,191,0.35); box-shadow: 0 0 60px rgba(45,212,191,0.12);">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ════════════════════════════════════
+             ABOUT
+        ════════════════════════════════════ -->
+        <section id="about" class="page hidden py-24">
+            <p class="text-teal-400 font-medium tracking-widest text-sm uppercase mb-2">Get to know me</p>
+            <h2 class="text-4xl font-extrabold text-white mb-12">About Me</h2>
+
+            <div class="grid md:grid-cols-5 gap-16 items-center">
+                <div class="md:col-span-2">
+                    <!--
+                    ═══════════════════════════════════════════════
+                    WORKING PHOTO — HOW TO ADD IT:
+                    Upload "working.jpg" to assets/images/ and
+                    change the src to: src="assets/images/working.jpg"
+                    ═══════════════════════════════════════════════
+                    -->
+                    <img src="assets/images/labwork.jpg"
+                         alt="Temitayo working in a lab"
+                         class="rounded-2xl shadow-xl w-full object-cover"
+                         style="border: 1px solid rgba(255,255,255,0.06);">
+                </div>
+
+                <div class="md:col-span-3 text-slate-400 leading-relaxed space-y-5 text-base">
+                    <p>
+                        I am a passionate and results-oriented professional transitioning from a strong background in zoology (parasitology) into the dynamic world of bioinformatics and data science. My journey began with a focus on understanding pathogens and disease transmission at a microscopic level. However, I soon realised the potential of computational analysis to unlock patterns and insights from vast biological datasets.
+                    </p>
+                    <p>
+                        This drove me to acquire skills in Python and R, data manipulation libraries such as Pandas, and machine learning frameworks like Scikit-learn. I am proficient at transforming raw data into meaningful visualisations and predictive models that can inform public health strategies and clinical research.
+                    </p>
+                    <p>
+                        My unique interdisciplinary perspective bridges wet-lab research and computational analysis, ensuring that data-driven solutions are both technically sound and biologically relevant. I am eager to apply these skills to solve real-world health problems and contribute to a healthier future for all.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ════════════════════════════════════
+             PROJECTS
+        ════════════════════════════════════ -->
+        <section id="projects" class="page hidden py-24">
+            <p class="text-teal-400 font-medium tracking-widest text-sm uppercase mb-2">What I've built</p>
+            <h2 class="text-4xl font-extrabold text-white mb-12">Featured Projects</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Project 1 -->
+                <div class="flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                     style="background:var(--surface); border:1px solid rgba(255,255,255,0.06); box-shadow:0 0 0 0 rgba(45,212,191,0); transition: box-shadow 0.3s, transform 0.3s;"
+                     onmouseenter="this.style.boxShadow='0 8px 40px rgba(45,212,191,0.12)'"
+                     onmouseleave="this.style.boxShadow='none'">
+                    <div class="text-3xl mb-4">🧬</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Malaria Drug Resistance Model</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-4">
+                        Developed a machine learning model to predict malaria drug resistance based on phenotype data, aiming to improve early warning systems.
+                    </p>
+                    <div class="mb-4">
+                        <span class="tag">Python</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                    <span class="text-slate-600 text-sm italic">Not public yet</span>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                     style="background:var(--surface); border:1px solid rgba(255,255,255,0.06);"
+                     onmouseenter="this.style.boxShadow='0 8px 40px rgba(45,212,191,0.12)'"
+                     onmouseleave="this.style.boxShadow='none'">
+                    <div class="text-3xl mb-4">🔬</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Genomic Variant Analysis Pipeline</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-4">
+                        A bioinformatics pipeline for identifying and annotating genetic variants from NGS data to find copy number variations (CNVs).
+                    </p>
+                    <div class="mb-4">
+                        <span class="tag">Nextflow</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">GATK</span>
+                    </div>
+                    <a href="https://github.com/pukkahb/HTS_2024_copy_number-genotyping"
+                       target="_blank" rel="noopener"
+                       class="text-teal-400 text-sm font-semibold hover:underline mt-auto">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                     style="background:var(--surface); border:1px solid rgba(255,255,255,0.06);"
+                     onmouseenter="this.style.boxShadow='0 8px 40px rgba(45,212,191,0.12)'"
+                     onmouseleave="this.style.boxShadow='none'">
+                    <div class="text-3xl mb-4">🏥</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Hospital DBMS</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-4">
+                        A relational database for managing hospital operations, built to handle patient records, appointments, and staff data.
+                    </p>
+                    <div class="mb-4">
+                        <span class="tag">SQL</span>
+                    </div>
+                    <a href="https://github.com/pukkahb/hospital_dbms"
+                       target="_blank" rel="noopener"
+                       class="text-teal-400 text-sm font-semibold hover:underline mt-auto">
+                        View on GitHub →
+                    </a>
+                    </a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                     style="background:var(--surface); border:1px solid rgba(255,255,255,0.06);"
+                     onmouseenter="this.style.boxShadow='0 8px 40px rgba(45,212,191,0.12)'"
+                     onmouseleave="this.style.boxShadow='none'">
+                    <div class="text-3xl mb-4">🔬</div>
+                    <h3 class="text-xl font-bold text-white mb-2">R Tutorial</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-4">
+                        A guide is designed for biology students and researchers to get started with basic data analysis, visualization, and manipulation in R.
+                    </p>
+                    <div class="mb-4">
+                        <span class="tag">R</span>
+                    </div>
+                    <a href="https://github.com/pukkahb/R-for-Biology-Beginners-Tutorial"
+                       target="_blank" rel="noopener"
+                       class="text-teal-400 text-sm font-semibold hover:underline mt-auto">
+                        View on GitHub →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ════════════════════════════════════
+             EXPERIENCE
+        ════════════════════════════════════ -->
+        <section id="experience" class="page hidden py-24">
+            <p class="text-teal-400 font-medium tracking-widest text-sm uppercase mb-2">My journey</p>
+            <h2 class="text-4xl font-extrabold text-white mb-16">Experience & Education</h2>
+
+            <div class="space-y-16">
+
+                <!-- Work Experience -->
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-400 mb-8 pl-4 border-l-4 border-teal-400">Work Experience</h3>
+                    <div class="relative border-l-2 border-slate-700 ml-4 pl-8 space-y-10">
+
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-teal-500 ring-4 ring-[var(--bg)]"></div>
+                            <h4 class="text-lg font-bold text-white">Research Assistant</h4>
+                            <p class="text-teal-400/70 text-sm font-medium mb-2">
+                                Covenant University Bioinformatics Research (CUBRe) · 2025 – Present
+                            </p>
+                            <ul class="text-slate-400 text-sm space-y-1 list-disc list-inside">
+                                <li>Working on malaria genomics modelling.</li>
+                            </ul>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-teal-500 ring-4 ring-[var(--bg)]"></div>
+                            <h4 class="text-lg font-bold text-white">Research Assistant</h4>
+                            <p class="text-teal-400/70 text-sm font-medium mb-2">
+                                Covenant Applied Informatics and Communication Africa Centre of Excellence (CApIC-ACE) · 2023 – 2025
+                            </p>
+                            <ul class="text-slate-400 text-sm space-y-1 list-disc list-inside">
+                                <li>Assisted in the federated-generated omics (FEDGEN) lab.</li>
+                                <li>Developed proficiency in bioinformatics tools for genomic data analysis.</li>
+                                <li>Developed a hospital database management system.</li>
+                            </ul>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-teal-500 ring-4 ring-[var(--bg)]"></div>
+                            <h4 class="text-lg font-bold text-white">Research Assistant</h4>
+                            <p class="text-teal-400/70 text-sm font-medium mb-2">
+                                Damien Foundation for Genomics and Mycobacteria Research and Training Centre · 2023
+                            </p>
+                            <ul class="text-slate-400 text-sm space-y-1 list-disc list-inside">
+                                <li>Performed DNA sequencing and molecular biology techniques.</li>
+                                <li>Managed lab inventory and maintained equipment.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-400 mb-8 pl-4 border-l-4 border-teal-400">Education</h3>
+                    <div class="relative border-l-2 border-slate-700 ml-4 pl-8 space-y-10">
+
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-teal-500 ring-4 ring-[var(--bg)]"></div>
+                            <h4 class="text-lg font-bold text-white">M.Sc. in Bioinformatics <span class="text-white-400 text-sm">(Ongoing)</span></h4>
+                            <p class="text-teal-400/70 text-sm font-medium">Covenant University · 2023 – 2025</p>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-slate-500 ring-4 ring-[var(--bg)]"></div>
+                            <h4 class="text-lg font-bold text-white">B.Sc. in Zoology</h4>
+                            <p class="text-teal-400/70 text-sm font-medium">University of Ibadan · 2015 – 2019</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-400 mb-8 pl-4 border-l-4 border-teal-400">Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tag text-sm py-1.5 px-4">Python</span>
+                        <span class="tag text-sm py-1.5 px-4">R</span>
+                        <span class="tag text-sm py-1.5 px-4">SQL</span>
+                        <span class="tag text-sm py-1.5 px-4">Pandas</span>
+                        <span class="tag text-sm py-1.5 px-4">Scikit-learn</span>
+                        <span class="tag text-sm py-1.5 px-4">Nextflow</span>
+                        <span class="tag text-sm py-1.5 px-4">Git & GitHub</span>
+                        <span class="tag text-sm py-1.5 px-4">PCR</span>
+                        <span class="tag text-sm py-1.5 px-4">NGS Data Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Volunteering -->
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-400 mb-8 pl-4 border-l-4 border-teal-400">Volunteering</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+
+                        <div class="rounded-2xl overflow-hidden" style="background:var(--surface); border:1px solid rgba(255,255,255,0.06);">
+                            <!--
+                            ═══════════════════════════════════════════════
+                            VOLUNTEER PHOTO 1 — HOW TO ADD IT:
+                            Upload "volunteer-1.jpg" to assets/images/
+                            Change src to: src="assets/images/volunteer-1.jpg"
+                            ═══════════════════════════════════════════════
+                            -->
+                            <img src="assets/images/capicace.jpg"
+                                 alt="Cancer awareness event at CApIC-ACE"
+                                 class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <h4 class="text-base font-bold text-white">Cancer Awareness Volunteer</h4>
+                                <p class="text-slate-400 text-sm">CApIC-ACE</p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl overflow-hidden" style="background:var(--surface); border:1px solid rgba(255,255,255,0.06);">
+                            <!--
+                            ═══════════════════════════════════════════════
+                            VOLUNTEER PHOTO 2 — HOW TO ADD IT:
+                            Upload "volunteer-2.jpg" to assets/images/
+                            Change src to: src="assets/images/volunteer-2.jpg"
+                            ═══════════════════════════════════════════════
+                            -->
+                            <img src="assets/images/ccodel.png"
+                                 alt="Volunteering at CCODeL"
+                                 class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <h4 class="text-base font-bold text-white">Content Creation Volunteer</h4>
+                                <p class="text-slate-400 text-sm">CCODeL</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ════════════════════════════════════
+             CONTACT
+        ════════════════════════════════════ -->
+        <section id="contact" class="page hidden py-24">
+            <div class="text-center max-w-xl mx-auto">
+                <p class="text-teal-400 font-medium tracking-widest text-sm uppercase mb-2">What's next?</p>
+                <h2 class="text-4xl font-extrabold text-white mb-6">Get In Touch</h2>
+                <p class="text-slate-400 leading-relaxed mb-10">
+                    I'm currently open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to say hi: my inbox is always open.
+                </p>
+
+                <!--
+                Replace the email address below with your real one.
+                -->
+                <a href="mailto:ogundimutemitayoa@gmail.com"
+                   class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-10 rounded-lg transition-colors text-sm mb-12">
+                    Say Hello
+                </a>
+
+                <div class="flex justify-center gap-6">
+                    <a href="https://www.linkedin.com/in/oatemitayo"
+                       target="_blank" rel="noopener"
+                       aria-label="LinkedIn profile"
+                       class="text-slate-400 hover:text-teal-400 transition-colors">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="https://github.com/pukkahb"
+                       target="_blank" rel="noopener"
+                       aria-label="GitHub profile"
+                       class="text-slate-400 hover:text-teal-400 transition-colors">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- ════════════════════════ FOOTER ════════════════════════ -->
-    <footer class="text-center text-slate-600 border-t border-white/5"
-            style="padding-block: 1.5rem; font-size:0.85rem;">
+
+    <!-- ════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════ -->
+    <footer class="text-center text-slate-600 text-sm py-8 mt-8 border-t border-white/5">
         <p>© Temitayo Ogundimu · <span id="year"></span></p>
     </footer>
 
+
+    <!-- ════════════════════════════════════
+         JAVASCRIPT
+    ════════════════════════════════════ -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
         document.addEventListener('DOMContentLoaded', () => {
-            const navLinks   = document.querySelectorAll('.nav-link');
-            const pages      = document.querySelectorAll('.page');
-            const menuBtn    = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconOpen   = document.getElementById('icon-open');
-            const iconClose  = document.getElementById('icon-close');
+            const navLinks    = document.querySelectorAll('.nav-link');
+            const pages       = document.querySelectorAll('.page');
+            const menuBtn     = document.getElementById('menu-btn');
+            const mobileMenu  = document.getElementById('mobile-menu');
+            const iconOpen    = document.getElementById('icon-open');
+            const iconClose   = document.getElementById('icon-close');
 
+            // ── Toggle mobile menu ──
             menuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('open');
                 iconOpen.classList.toggle('hidden');
                 iconClose.classList.toggle('hidden');
             });
 
-            function showPage(id) {
-                pages.forEach(p => p.classList.toggle('hidden', p.id !== id));
-            }
-
-            function setActive(href) {
-                navLinks.forEach(l => {
-                    const match = l.getAttribute('href') === href;
-                    l.classList.toggle('active-link', match);
+            // ── Show a page, hide others ──
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
                 });
             }
 
+            // ── Highlight the active nav link ──
+            function setActive(href) {
+                navLinks.forEach(link => {
+                    const match = link.getAttribute('href') === href;
+                    link.classList.toggle('active-link', match);
+                    link.classList.toggle('text-teal-400', match);
+                });
+            }
+
+            // ── Handle all nav link clicks ──
             navLinks.forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();
-                    const href = link.getAttribute('href');
-                    showPage(href.substring(1));
+                    const href   = link.getAttribute('href');
+                    const pageId = href.substring(1);
+                    showPage(pageId);
                     setActive(href);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    // Close mobile menu after navigation
                     mobileMenu.classList.remove('open');
                     iconOpen.classList.remove('hidden');
                     iconClose.classList.add('hidden');
                 });
             });
 
-            const init = window.location.hash ? window.location.hash.substring(1) : 'home';
-            showPage(init);
-            setActive('#' + init);
+            // ── Initialise ──
+            const initialId = window.location.hash ? window.location.hash.substring(1) : 'home';
+            showPage(initialId);
+            setActive('#' + initialId);
         });
     </script>
 
